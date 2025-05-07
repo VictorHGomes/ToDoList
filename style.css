@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,49 +6,73 @@
     font-family: "Outfit", sans-serif;
 }
 
-body{
+body {
     background-image: url('images/05-mojave04.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 16px;
 }
+
 
 .container {
     background-color: #d1d1d1;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     border-radius: 10px;
-    padding: 10px;
-    margin: 100px auto 0;
+    padding: 16px;
+    margin: 60px auto 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.input-task{
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+.input-task {
+    flex: 1;
     border: none;
     border-radius: 5px;
-    padding: 20px;
-    width: 380px;
+    padding: 12px;
     height: 40px;
+    min-width: 0;
 }
 
-.button-add-task{
+
+.button-add-task {
     border: none;
     border-radius: 5px;
     height: 40px;
     background-color: rgb(97, 97, 172);
     color: white;
-    padding: 10px;
+    padding: 0 16px;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 16px;
+    white-space: nowrap;
 }
 
-.button-add-task:hover{
+.button-add-task:hover {
     background-color: rgba(36, 95, 173, 0.479);
-    
 }
 
-.button-add-task:active{
+.button-add-task:active {
     background-color: rgba(0, 0, 255, 0.486);
-    
 }
 
 
-.task{
+.list-tasks {
+    width: 100%;
+    list-style: none;
+    margin-top: 30px;
+}
+
+
+.task {
     background-color: #f2f2f2;
     box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
     display: flex;
@@ -59,25 +83,49 @@ body{
     padding: 0 15px;
     margin-bottom: 15px;
     cursor: pointer;
+    flex-wrap: wrap;
 }
 
-.list-tasks{
-    width: 100%;
-    list-style: none;
-    margin-top: 30px;
-}
 
-img {
-    height: 30px;
+.task img {
+    height: 24px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
-.task:hover img{
+.task:hover img {
     opacity: 1;
 }
+
 
 .done {
     background-color: #8fac55;
     text-decoration: line-through;
+}
+
+
+@media (max-width: 480px) {
+    .input-task {
+        width: 100%;
+    }
+
+    .form-container {
+        flex-direction: column;
+    }
+
+    .button-add-task {
+        width: 100%;
+    }
+
+    .task {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px;
+    }
+
+    .task img {
+        opacity: 1; /* mostra os ícones sempre no mobile */
+        margin-top: 8px;
+    }
 }
