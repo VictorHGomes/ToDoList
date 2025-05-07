@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Outfit", sans-serif;
+}
+
+body{
+    background-image: url('images/05-mojave04.png');
+}
+
+
+
+
+
+.container {
+    background-color: #d1d1d1;
+    width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 100px auto 0;
+}
+
+.input-task{
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    width: 380px;
+    height: 40px;
+}
+
+.button-add-task{
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    background-color: rgb(97, 97, 172);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.button-add-task:hover{
+    background-color: rgba(36, 95, 173, 0.479);
+    
+}
+
+.button-add-task:active{
+    background-color: rgba(0, 0, 255, 0.486);
+    
+}
+
+
+.task{
+    background-color: #f2f2f2;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.list-tasks{
+    width: 100%;
+    list-style: none;
+    margin-top: 30px;
+}
+
+img {
+    height: 30px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.task:hover img{
+    opacity: 1;
+}
