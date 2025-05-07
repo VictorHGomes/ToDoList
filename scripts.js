@@ -3,23 +3,42 @@ const input = document.querySelector('.input-task')
 let minhaListaDeItens = []
 const listaCompleta = document.querySelector('.list-tasks')
 function adicionarNovaTarefa() {
-    minhaListaDeItens.push(input.value)
+    minhaListaDeItens.push({
+        tarefa: input.value,
+        concluida: false
+    })
     input.value = ''
     mostrarTarefas()
 }
 
 function mostrarTarefas() {
     let novaLi = ''
-    minhaListaDeItens.forEach((item) => {
+    minhaListaDeItens.forEach((item, index) => {
         novaLi =  novaLi  + `
-    <li class="task">
-        <img src="images/checked.png" alt="task-done">
-        <p>${item}</p>
-        <img src="images/trash.png" alt="task-removed">
+    <li class="task ${item.concluida && "done"}">
+        <img src="images/checked.png" alt="task-done" onclick="concluirTarefa(${index})">
+        <p>${item.tarefa}</p>
+        <img src="images/trash.png" alt="task-removed" onclick= "deletarItem(${index})">
     </li>
     `
     })
     listaCompleta.innerHTML = novaLi
+}
+
+input.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        adicionarNovaTarefa()
+    }
+})
+function concluirTarefa(posicao){
+    minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida
+    mostrarTarefas()
+
+}
+
+function deletarItem(posicao){
+    minhaListaDeItens.splice(posicao, 1)
+    mostrarTarefas()
 }
 
 button.addEventListener('click', adicionarNovaTarefa)
